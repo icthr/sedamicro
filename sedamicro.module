@@ -1,0 +1,37 @@
+<?php
+include_once(dirname(__File__) .'/incs-funcs.inc.php');
+
+function sedamicro_help($path, $args) 
+{
+	if ($path == 'admin/help#sedamicro') 
+	{
+		return t('To use this module, go to the block page and turn on the Seda-Micro module.');
+  	}
+}
+
+
+function sedamicro_block_info()
+{
+	$blocks=array();
+	$blocks['sedamicro'] = array( 
+		'info'=>t('Seda-Micro App Connector'),
+		'cache'=>DRUPAL_NO_CACHE,
+	);
+	return $blocks;
+}
+
+function sedamicro_block_view($name)
+{
+	$cms = getCMS();
+	$seda_keys = new SedaCrypt();
+	if ($name=="sedamicro")
+	{
+		$k= $cms->get_option('seda_symmetric');
+
+		$block = array (
+			'subject' => t('Key'),
+			'content' =>t("x=".$k['symmetric']),
+		);
+		return $block;
+	}
+}

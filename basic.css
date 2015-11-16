@@ -1,0 +1,51 @@
+html, body {
+                width: 80%;
+                height: 80%;
+                margin: 10;
+                padding: 10;
+                background-color: white;
+}
+DIV.element
+{
+    min-width: 5vw;
+    width: 100%;
+    height: auto;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+p {
+     font-size: 16px;
+     font-size: 3vmin;
+}
+
+
+img
+{
+    min-height 80%; 
+    width: auto;
+}
+input
+{
+	font-size: 30px;
+}
+#loadingDiv
+{
+	display:none;
+	position: absolute;
+	z-index: 10;
+	top:0;
+	background: rgba(255,255,255,.5);
+	width: 100%; 
+}
+#loadingDiv.img
+{
+	position: absolute;
+	left:0;
+}

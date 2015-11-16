@@ -1,0 +1,71 @@
+
+/*
+$file = new stdClass();
+$filepath = $infile['tmp_name'];
+$file->filename = basename($filepath);
+$file->filepath = $filepath;
+$file->filemime = $infile['type'];//file_get_mimetype($filepath);
+$file->filesize = $inflie['size'];//filesize($filepath);
+$file->uid = 100;
+$file->status = FILE_STATUS_PERMANENT;
+$file->uri = $filepath;
+$file->display = 1;
+$file->description = '';
+$file = file_copy($file,'public://',FILE_EXISTS_REPLACE);
+
+		var_dump($file);
+$handle = fopen($filepath, 'r');
+$file = file_save_data($handle, 'public://'.$infile['name']);
+fclose($handle);
+
+echo "Aaaas";
+print_r( $infile);
+		var_dump($file);
+		$ret = array(
+			'error'=>'',
+			'filr'=>'',
+			'url'=>'',
+			'type'=>'',
+		);
+// Load the files contents
+*/
+/*
+// Returns the new file object
+$filepath = file_build_uri($infile['name']);
+echo drupal_get_path('module','sedamicro');
+echo $filepath;
+echo "\n";
+//$file = file_save_data($image, $filepath, FILE_EXISTS_RENAME);
+$file = file_save_data($image, "a.png", FILE_EXISTS_RENAME);
+//var_dump(move_uploaded_file($infile['tmp_name'],$filepath));
+*/
+/*
+//not needed with the new S3 support system
+    // Construct a Drupal file object.
+    $file = new stdClass();
+    $file->uid = 1;
+    $file->filename = $infile['name'];
+    $file->filesize = $infile['size'];
+    $file->filemime = $infile['type'];
+    $file->uri = "s3://a".$infile['name'];
+    $file->status = 0;
+    $file->timestamp = REQUEST_TIME;
+/******
+    // Save the uploaded file to the file_managed table.
+  module_invoke_all('file_presave', $file);
+  module_invoke_all('entity_presave', $file, 'file');
+
+  drupal_write_record('file_managed', $file);
+  // Inform modules about the newly added file.
+  module_invoke_all('file_insert', $file);
+  module_invoke_all('entity_insert', $file, 'file');
+
+  // Clear the static loading cache.
+  entity_get_controller('file')->resetCache(array($file->fid));
+/******
+    $return['fid'] = $file->fid;
+
+    // Store the file's metadata into s3fs's metadata cache.
+    $wrapper = new S3fsStreamWrapper();
+    $wrapper->writeUriToCache($file->uri);
+*/

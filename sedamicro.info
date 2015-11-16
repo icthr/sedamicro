@@ -1,0 +1,6 @@
+name = Seda-Micro 
+description = This plugin will add allow file upload directly from the Android app to the Amazon S3 if correctly connected.
+core = 7.x
+dependencies[] = awssdk2 
+dependencies[] = s3fs 
+

@@ -1,0 +1,45 @@
+<?php
+if (!defined('NO_AUTH'))
+{
+	define('NO_AUTH',1);
+}
+include_once(dirname(__File__) .'/incs-funcs.inc.php');
+
+function sedamicro_install()
+{
+	$cms = getCMS();
+  	variable_del('sedamicro_key');
+	$seda_keys = new SedaCrypt();
+	$cms->set_option("sedamicro_keys", $seda_keys->generate());
+	drupal_set_message(t("adding key"));
+	if (!class_exists("Imagick"))
+	{
+		$error_message = 'This plugin requires <a href="http://php.net/manual/en/imagick.setup.php">Imagick</a> to be active!';
+		die($error_message);	
+	}
+}
+function sedamicro_enable()
+{
+	$cms = getCMS();
+  	variable_del('sedamicro_key');
+	$seda_keys = new SedaCrypt();
+	$cms->set_option("sedamicro_keys", $seda_keys->generate());
+	drupal_set_message(t("adding key"));
+	if (!class_exists("Imagick"))
+	{
+		$error_message = 'This plugin requires <a href="http://php.net/manual/en/imagick.setup.php">Imagick</a> to be active!';
+		die($error_message);	
+	}
+}
+
+function sedamicro_uninstall() {
+  drupal_set_message(t("removing key"));
+  variable_del('sedamicro_key');
+}
+
+function sedamicro_schema() {
+  $schema = array();
+
+  return $schema;
+}
+
