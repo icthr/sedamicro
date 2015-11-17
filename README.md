@@ -16,11 +16,12 @@ Step 3:
 ---S3 File System
 ---Libraries
 ---System
+--Configure S3 plugin
 --Install Seda-Micro, and make sure all dependencies are met
 --Drupal does not have a default “file browser” and gallery, so pick a plugin
 
 -For Wordpress installation:
---Install the Amazon S3 plugin
+--Install the Amazon S3 plugin and configure it
 --Install Seda-Micro plugin
 
 Step 4:
@@ -36,6 +37,6 @@ Step 5:
 -The captcha is to prevent scripted mass bombardment of storage with files
 
 Step 6:
--To display or use uploaded files:
---In Wordpress you can directly browse in the gallery, or use template pages that list gallery items
---In Drupal, content management is left to the administrator. There are multiple plugins available that allow such gallery viewing or image insertion.
+*To display or use uploaded files:
+**In Wordpress you can directly browse in the gallery, or use template pages that list gallery items
+**In Drupal, content management is left to the administrator. There are multiple plugins available that allow such gallery viewing or image insertion.

@@ -122,12 +122,27 @@ class SymmetricCrypto
         $nonce = openssl_random_pseudo_bytes(32);
         return hash_hmac(self::HASH_ALGO, $a, $nonce) === hash_hmac(self::HASH_ALGO, $b, $nonce);
     }
-protected static function base64_url_encode($input) {
- return strtr(base64_encode($input), '+/=', '-_,');
-}
 
-protected static function base64_url_decode($input) {
- return base64_decode(strtr($input, '-_,', '+/='));
-}
+    /**
+     * Wrapper to do UUEncode, replacing the the characters GET cannot handle
+     * 
+     * @param string $input
+     * @return trimmed string of uuencode
+     */
+    protected static function base64_url_encode($input) 
+    {
+         return strtr(base64_encode($input), '+/=', '-_,');
+    }
+
+    /**
+     * Wrapper to do UUDecode, replacing the the characters GET cannot handle
+     * 
+     * @param string $input
+     * @return trimmed string of uudecode
+     */
+    protected static function base64_url_decode($input) 
+    {
+         return base64_decode(strtr($input, '-_,', '+/='));
+    }
 }
 
