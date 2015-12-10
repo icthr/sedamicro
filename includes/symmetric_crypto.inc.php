@@ -19,8 +19,13 @@ class SymmetricCrypto
         list($encKey, $authKey) = self::splitKeys($key);
 
         $nonceSize = openssl_cipher_iv_length(self::METHOD);
-        $nonce = openssl_random_pseudo_bytes($nonceSize);
+	$is_Strong = false;
+        $nonce = openssl_random_pseudo_bytes($nonceSize, $is_strong);
 
+	if (!$is_strong)
+	{
+		die ("pseudo random bytes not strong; system might be too old");
+	}
         $ciphertext = openssl_encrypt(
             $message,
             self::METHOD,
@@ -56,7 +61,8 @@ class SymmetricCrypto
         if ($encoded) {
             $message = self::base64_url_decode($message, true);
             if ($message === false) {
-                throw new Exception('Encryption failure');
+                //throw new Exception('Encryption failure');
+                die('Encryption failure');
             }
         }
 
@@ -75,7 +81,7 @@ class SymmetricCrypto
 
         if (!self::hashEquals($mac, $calculated)) {
             	//throw new Exception('Encryption failure'); #uncaught exceptions reveal data
-		die 'Encryption failure';
+		die ('Encryption failure');
         }
 
         $nonceSize = openssl_cipher_iv_length(self::METHOD);
