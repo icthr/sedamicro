@@ -22,11 +22,18 @@ function generate()
     $pubKey = openssl_pkey_get_details($res);
     $bytes=openssl_random_pseudo_bytes(32);
     $symmetric = bin2hex($bytes);
+    if ($bytes == false || empty($symmetric) )
+    {
+	return array (
+		'error' => 1
+	);
+    }
     return array(
         'private' => $privKey,
         'public' => $pubKey["key"],
 	'symmetric'=> $symmetric,
         'type' => $config,
+	'error' => 0
     );
 }
 

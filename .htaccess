@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /
+
+<FilesMatch "\.(module|info|md|install)$">
+order Allow,Deny
+deny from all
+</FilesMatch>
+
+# Disable directory browsing
+Options All -Indexes

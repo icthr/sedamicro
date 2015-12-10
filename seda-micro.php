@@ -32,7 +32,15 @@ class seda_micro
 		$seda_keys = new SedaCrypt();
 		if (!get_option("seda_keys"))
 		{
-			add_option("seda_keys", $seda_keys->generate(),0,0);
+			$key_arr = $seda_keys->generate();
+			if ($key_arr['error'] == 0)
+			{
+				add_option("seda_keys", $key_arr, 0, 0);
+			}
+			else
+			{
+				die("error generating keys");
+			}
 		}
 	}
 	

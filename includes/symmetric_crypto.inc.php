@@ -74,7 +74,8 @@ class SymmetricCrypto
         );
 
         if (!self::hashEquals($mac, $calculated)) {
-            throw new Exception('Encryption failure');
+            	//throw new Exception('Encryption failure'); #uncaught exceptions reveal data
+		die 'Encryption failure';
         }
 
         $nonceSize = openssl_cipher_iv_length(self::METHOD);

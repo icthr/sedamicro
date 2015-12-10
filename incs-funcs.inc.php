@@ -16,7 +16,7 @@ if (file_exists($expected_wp_load_file))
 	if ( ! function_exists( 'wp_handle_upload' ) ) {
 	    require_once( ABSPATH . 'wp-admin/includes/file.php' );
 	}
-	if (!is_plugin_active("seda-micro/seda-micro.php"))
+	if (!is_plugin_active("sedamicro/seda-micro.php"))
 	{
 		die("Plugin is disabled");
 	}
