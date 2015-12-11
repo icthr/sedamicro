@@ -206,6 +206,24 @@ function str2img($str)
 	ob_end_flush();
 }
 
+/* 
+* Generate random string of given length
+* @param length default is 10
+* @return a random string of num/symbols of given length
+*/
+
+function generateRandomString($length = 7) 
+{
+    $characters = '0123456789abcdefhijklmnoprstuvwxyzABCDEFGHIJKLMNOPRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) 
+    {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+
 /*
 * Generate a random equation, so user can solve it
 * @param 
@@ -215,21 +233,9 @@ function str2img($str)
 
 function createEq($key)
 {
-	$answer = -1;
-	while ($answer < 0 )
-	{
-		$x = rand(1,9);
-		$y = rand(1,9);
-		$z = rand(1,9);
-		$op1 = rand(0,1);
-		$op2 = rand(0,1);
-		$ops = array("+", "-");
-
-		$eq = $x .$ops[$op1].$y.$ops[$op2].$z;
-		eval('$answer='.$eq.";");
-	}
-	$imgEq = self::a2c($eq."=?","",$key);
-	$expectedAnswer = self::a2c($answer,"",$key, $x);
+	$randStr = self::generateRandomString();
+	$imgEq = self::a2c($randStr,"",$key);
+	$expectedAnswer = self::a2c($randStr,"",$key, $x);
 	return array("eq"=>$imgEq, "answer"=>$expectedAnswer);
 }
 
