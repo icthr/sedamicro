@@ -25,6 +25,11 @@ if(isset($_POST["submit"]) && ($_FILES["fileToUpload"]["size"]>0)) {
 	$uploadOk = 1;
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 	$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+	if (!in_array($imageFileType, 
+		array('png', 'gif', 'jpg','jpeg', 'ogg','mp3','mp4'))) 
+	{
+		$uploadOk = 0;
+	}
 	// Check if $uploadOk is set to 0 by an error
 	if ($keyValid ==0 || $uploadOk == 0) {
 	    $msg.="<span>".$lang["sorry_not_uploaded"].".</span>";

@@ -8,7 +8,7 @@ function seda_micro_options() {
 		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 	}
 	$keys= get_option("seda_keys");
-	if (isset($_POST['gen_key']) && check_admin_referer('genkey_action','genkey_nonce')
+	if (isset($_POST['gen_key']) && check_admin_referer('genkey_action','genkey_nonce'))
 	{
 		$seda_keys = new SedaCrypt();
 		update_option("seda_keys", $seda_keys->generate(),0);
