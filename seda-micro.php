@@ -4,11 +4,11 @@ include_once(dirname(__File__) .'/includes/crypt.inc.php');
 
 /*
 Plugin Name: SedaMicro Uploader 
-Plugin URI: {{git_url}}
+Plugin URI: https://github.com/icthr/sedamicro
 Description: This plugin will add allow file upload directly from the Android app to the Amazon S3 if correctly connected.
-Version: 0.5.0
+Version: 0.7.0
 Author: ICT4HR
-Author URI: http://www.domain.net/
+Author URI: http://www.ict4hr.net/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
