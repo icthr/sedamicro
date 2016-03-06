@@ -28,6 +28,8 @@ Step 4:
 -Install SedaMicro Android app on a cellphone with access to the internet
 -Update the settings menu to point to this server
 --Alternatively, to have a larger coverage of users with different setups, we enabled direct access to uploader
+--Create one or more posts with shorthand code [seda-micro] in them. This will be replaced by the upload form.
+---You will need to distribute the URL of these pages.
 
 Step 5: 
 -Users can use the app or a web browser to upload audio files (and image or videos if web server permits)
